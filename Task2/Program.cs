@@ -86,17 +86,18 @@ void MinSumRows(Dictionary<int, int> dict, int[,] matrix)
                             }
                             k++;
               }
-              Console.WriteLine($"№ {numR} - строка с наименьшей суммой = {minSumRows};");
+              Console.WriteLine($"Строка № {numR} с наименьшей суммой = {minSumRows};");
 
 }
 
 
 //------------------------------Вызов методов --------------------------------------------
 
-int[,] matr = CreateMatrix(4, 4);
+int[,] matr = CreateMatrix(6, 4);
 PrintMatrix(matr);
 System.Console.WriteLine();
 SumRows(matr);
 PrintDictionary(SumRows(matr));
 System.Console.WriteLine();
 MinSumRows(SumRows(matr), matr);
+System.Console.WriteLine();
