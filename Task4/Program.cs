@@ -6,12 +6,28 @@
 // 27(0,0,1) 90(0,1,1)
 // 26(1,0,1) 55(1,1,1)
 //--------------------------------Решение------------------------------------------------------
+//----------------------1.Генерируем неповторяющиеся двузначные числа--------------------------
+int GenerateUniqueNumber()
+{
+              HashSet<int> numbers = new HashSet<int>();
+              Random rand = new Random();
+              while (true)
+              {
+                            int n = rand.Next(10, 100);
+                            if (!numbers.Contains(n))
+                            {
+                                          numbers.Add(n);
+                                          return n;
+                            }
+              }
+}
 
-//-----------------1.Создание трехмерного массива--------------------------------
+
+
+//-----------------2.Создаем трехмерный массив неповторяющихся чисел--------------------------------
 
 int[,,] CreateMatrix(int x, int y, int z)
 {
-              Random rand = new Random();
               int[,,] matrixZ = new int[x, y, z];
               for (int i = 0; i < x; i++)
               {
@@ -19,7 +35,7 @@ int[,,] CreateMatrix(int x, int y, int z)
                             {
                                           for (int k = 0; k < z; k++)
                                           {
-                                                        matrixZ[i, j, k] = rand.Next(0, 10);
+                                                        matrixZ[i, j, k] = GenerateUniqueNumber();
                                           }
 
                             }
@@ -27,7 +43,7 @@ int[,,] CreateMatrix(int x, int y, int z)
               return matrixZ;
 
 }
-//---------------------2.Печать созданного массива с индексами каждого элемента ----------------
+//---------------------3.Печатаем созданный массив с индексами каждого элемента ----------------
 
 void PrintMatrix(int[,,] matrixZ)
 {
